@@ -59,25 +59,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Women's Consortium Portal Login</title>
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div id="loginPage">
-        <form method="POST" action="login.php">
-            <h1>Login</h1>
-            <?php if (isset($error)) echo "<p style='color: red;'>$error</p>"; ?>
-            <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
-    </div>
+    <header>
+        <h1>Women's Consortium Portal Login</h1>
+    </header>
+    <main>
+        <div id="loginPage">
+            <form method="POST" action="login.php" id="loginForm" class="form">
+                <h2>Login</h2>
+                <?php if (isset($error)) echo "<p style='color: red;'>$error</p>"; ?>
+                <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p>Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+            </form>
+        </div>
+        <div id="signupPage" style="display: none;">
+            <form id="signupForm" class="form">
+                <h2>Sign Up</h2>
+                <div class="form-group">
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password:</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+            </form>
+        </div>
+        <div id="welcomePage" style="display: none;">
+            <h2>Welcome</h2>
+            <p>You have successfully logged in.</p>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
