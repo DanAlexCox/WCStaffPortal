@@ -17,6 +17,11 @@ if (!isset($_SESSION['token'])) {
     $_SESSION['token'] = generateToken();
 }
 
+$logoutMessage = "";
+if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+    $logoutMessage = "You have successfully logged out.";
+}
+
 // If the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verify CSRF token
@@ -67,16 +72,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Women's Consortium Portal Login</title>
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="login.css">
+    <style>
+        .error-message, .logout-message {
+            color: red;
+            font-weight: bold;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Women's Consortium Portal Login</h1>
     </header>
     <main>
+        <?php if (!empty($logoutMessage)) echo "<div class='logout-message'>$logoutMessage</div>"; ?>
         <div id="loginPage">
             <form method="POST" action="login.php" id="loginForm" class="form">
                 <h2>Login</h2>
-                <?php if (isset($error)) echo "<p style='color: red;'>$error</p>"; ?>
+                <?php if (isset($error)) echo "<div class='error-message'>$error</div>"; ?>
                 <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
                 <div class="form-group">
                     <label for="email">Email:</label>
