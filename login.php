@@ -27,11 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Connect to the database (example connection, replace with real one)
     $conn = new mysqli("hostname", "username", "password", "database");
 
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
     // Get and sanitize input from the form
     $inputEmail = sanitizeInput($_POST['email']);
     $inputPassword = sanitizeInput($_POST['password']);
 
-    // Prepare and bind
+    // Prepare and bind (SQL injection prevention)
     $stmt = $conn->prepare("SELECT password_hash FROM users WHERE email = ?");
     $stmt->bind_param("s", $inputEmail);
 
