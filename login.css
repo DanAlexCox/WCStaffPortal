@@ -74,3 +74,33 @@ button:hover {
     border-radius: 5px;
     text-align: center;
 }
+
+/* Light/Dark Mode Styles */
+body.light-mode main {
+    background-color: white;
+    color: #333;
+}
+
+body.dark-mode main {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode .form h2 {
+    color: #4b7bec;
+}
+
+body.dark-mode .form-group input {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.dark-mode button {
+    background-color: #4b7bec;
+    color: white;
+}
+
+body.dark-mode button:hover {
+    background-color: #3867d6;
+}
