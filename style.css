@@ -86,6 +86,7 @@ p a {
 p a:hover {
     text-decoration: underline;
 }
+
 /* Dashboard Styles */
 .dashboard {
     text-align: center;
@@ -124,4 +125,43 @@ p a:hover {
     color: #bbb;
     cursor: not-allowed;
     border: 2px dashed #bbb;
+}
+
+/* Light/Dark Mode Styles */
+body.light-mode {
+    background-color: #ffffff;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode header {
+    background-color: #333;
+}
+
+body.dark-mode main {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode .form h2 {
+    color: #4b7bec;
+}
+
+body.dark-mode .form-group input {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.dark-mode button {
+    background-color: #4b7bec;
+    color: white;
+}
+
+body.dark-mode button:hover {
+    background-color: #3867d6;
 }
