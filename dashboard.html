@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women's Consortium Portal Dashboard</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <header>
@@ -15,6 +16,7 @@
         </nav>
     </header>
     <main>
+        <!-- Dashboard Section -->
         <section class="dashboard">
             <h2>Dashboard</h2>
             <div class="system-container">
@@ -23,6 +25,19 @@
                 <div class="system-card">Legal System</div>
                 <div class="system-card disabled">Future Systems</div>
             </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="settings-section">
+            <h2>Account Settings</h2>
+            <form id="settings-form">
+                <label for="theme">Theme:</label>
+                <select id="theme" name="theme">
+                    <option value="light">Light Mode</option>
+                    <option value="dark">Dark Mode</option>
+                </select>
+                <button type="submit">Save Settings</button>
+            </form>
         </section>
     </main>
     <script src="dashboard.js"></script>
