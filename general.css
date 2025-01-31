@@ -7,29 +7,25 @@ body {
     color: #333;
 }
 
-header {
-    background-color: #4b7bec;
-    color: white;
-    padding: 15px;
-    text-align: center;
+/* Light/Dark Mode Styles */
+body.light-mode {
+    background-color: #ffffff;
+    color: #333;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.8em;
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
 }
 
-p {
-    text-align: center;
-    margin-top: 10px;
+body.dark-mode header {
+    background-color: #333;
 }
 
-p a {
+body.dark-mode p a {
     color: #4b7bec;
-    text-decoration: none;
-    font-weight: bold;
 }
 
-p a:hover {
-    text-decoration: underline;
+body.dark-mode p a:hover {
+    color: #3867d6;
 }
